@@ -1,0 +1,87 @@
+\documentclass[
+	fontsize=10pt, 
+	twoside=true, 
+	numbers=noenddot, 
+]{kaobook}
+\usepackage{blindtext}
+\usepackage{styles/kaobiblio}
+\addbibresource{main.bib}
+\usepackage{styles/mdftheorems}
+\usepackage{amssymb,amsmath,stmaryrd}
+\usepackage[italian]{babel}
+\usepackage{pdfpages}
+
+\makeindex[columns=2, title=Indice Alfabetico, intoc]
+
+\usepackage[utf8]{inputenc}
+
+\newcommand{\mathtext}[1]{\mbox{$\mathrm{#1}$}}
+\newcommand{\mathtextbold}[1]{\mbox{$\boldsymbol{\mathrm{#1}}$}}
+
+\graphicspath{{images/}}
+\begin{document}
+\includepdf{images/copertina.jpg}
+
+\title[Appunti di metallurgia]{Appunti di metallurgia}
+\subtitle{per il corso del prof. Scavino}
+\author[Enrico Foglia, IL Mara]{IL Mara\thanks{Un pazzo che aveva un sacco di tempo libero, a cui tutti noi dobbiamo la nostra libertà.}, Enrico Foglia\thanks{Non aveva un cazzo da fare}}\footnote[0]{Copertina: @scottweb su unsplash.com}
+\date{}
+
+\frontmatter
+
+\makeatletter
+\lowertitleback{
+\textbf{Disclaimer}\\
+Gli appunti che seguono sono i leggendari appunti del Mara, rivisti e riproposti in una veste grafica più carina da Enrico Foglia.\\
+Il corso di Scavino, si sa, è un giungla con tanto di vietcong, dunque si spera che negli anni questa raccolta di sapere possa essere ampliata e migliorata fino alla perfezione. I margini larghi sono pensati apposta per poter contenere di anno in anno le novità del nostro professore preferito. Usate questi appunti senza ritegno, scarabocchiate, spotacciate e migliorate tutto quello che vi sentite. Solo: non vendeteli. Sono pensati come strumento per superare insieme un momento difficile, quindi non fate gli stronzi.
+}
+\makeatother
+
+
+\KOMAoptions{twoside=semi}
+\maketitle
+\KOMAoptions{twoside=false}
+
+\begingroup % Local scope for the following commands
+
+% Define the style for the TOC, LOF, and LOT
+%\setstretch{1} % Uncomment to modify line spacing in the ToC
+%\hypersetup{linkcolor=blue} % Uncomment to set the colour of links in the ToC
+\setlength{\textheight}{23cm} % Manually adjust the height of the ToC pages
+
+% Turn on compatibility mode for the etoc package
+\etocstandarddisplaystyle % "toc display" as if etoc was not loaded
+\etocstandardlines % toc lines as if etoc was not loaded
+
+\tableofcontents % Output the table of contents
+
+\endgroup
+
+
+\mainmatter
+\setchapterstyle{kao}
+
+
+\input{chapters/cap1}
+\input{chapters/cap2}
+\input{chapters/cap3}
+\input{chapters/cap4}
+\input{chapters/cap5}
+\input{chapters/cap6}
+\input{chapters/cap7}
+\input{chapters/cap8}
+\input{chapters/cap9}
+\input{chapters/cap10}
+\input{chapters/cap11}
+
+\appendix
+\pagelayout{wide} % No margins
+\addpart{Appendici}
+\pagelayout{margin} % Restore margins
+
+\input{chapters/AppendixA.tex}
+\input{chapters/AppendixB}
+\pagelayout{wide}
+\printindex
+
+\end{document}
